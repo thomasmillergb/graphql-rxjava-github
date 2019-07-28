@@ -1,0 +1,12 @@
+type RepositoryStared {
+    name: String
+    fullName: String
+    description: String
+    startedUrl: String
+    privateRepo: Boolean
+    starte: Int
+}
+
+type Query {
+    topStars(count: Int): [RepositoryStared]!
+}

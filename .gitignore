@@ -1,0 +1,13 @@
+.idea/
+.gradle
+
+*.iml
+*.DS_Store
+
+build/
+out/
+
+**/keystore.p12
+logs/
+
+ansible-vault-decrypt.sh*

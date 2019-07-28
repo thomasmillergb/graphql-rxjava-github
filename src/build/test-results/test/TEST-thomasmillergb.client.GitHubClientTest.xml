@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="thomasmillergb.client.GitHubClientTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-07-27T23:40:44" hostname="UKMLC464JG5H" time="0.301">
+  <properties/>
+  <testcase name="testGetRepos1Days()" classname="thomasmillergb.client.GitHubClientTest" time="0.284"/>
+  <testcase name="testGetRepos7Days()" classname="thomasmillergb.client.GitHubClientTest" time="0.012"/>
+  <system-out><![CDATA[00:40:42,979 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback-test.xml] at [file:/Users/thomasmiller/dev/Thomas-GitHubQuery/build/resources/main/logback-test.xml]
+00:40:43,060 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+00:40:43,061 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+00:40:43,069 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+00:40:43,110 |-WARN in ch.qos.logback.core.ConsoleAppender[STDOUT] - This appender no longer admits a layout as a sub-component, set an encoder instead.
+00:40:43,110 |-WARN in ch.qos.logback.core.ConsoleAppender[STDOUT] - To ensure compatibility, wrapping your layout in LayoutWrappingEncoder.
+00:40:43,110 |-WARN in ch.qos.logback.core.ConsoleAppender[STDOUT] - See also http://logback.qos.ch/codes.html#layoutInsteadOfEncoder for details
+00:40:43,111 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to INFO
+00:40:43,111 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+00:40:43,112 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+00:40:43,120 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@4ffd1893 - Registering current configuration as safe fallback point
+
+2019-07-28 00:40:43 [Test worker] INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [thomasmillergb.client.GitHubClientTest], using DelegatingSmartContextLoader
+2019-07-28 00:40:43 [Test worker] INFO  o.s.t.c.s.AbstractContextLoader - Could not detect default resource locations for test class [thomasmillergb.client.GitHubClientTest]: no resource found for suffixes {-context.xml}.
+2019-07-28 00:40:43 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [thomasmillergb.client.GitHubClientTest]: GitHubClientTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2019-07-28 00:40:43 [Test worker] INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-07-28 00:40:43 [Test worker] INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@365cdff, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@ea46009, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7a2e48b, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@69036f78, org.springframework.test.context.support.DirtiesContextTestExecutionListener@44a44d92, org.springframework.test.context.transaction.TransactionalTestExecutionListener@69adc927, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@79bbee25, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@b3136c5, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6d9f32ec, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@6afc3a89, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4c903b35, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4e15bb7c]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

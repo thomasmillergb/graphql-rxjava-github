@@ -1,0 +1,100 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.4.RELEASE")
+        classpath("gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.19.2")
+        classpath("io.spring.gradle:dependency-management-plugin:1.0.5.RELEASE")
+        classpath("org.ajoberstar:grgit:1.1.0")
+    }
+}
+
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.3.31'
+    id 'com.palantir.docker' version '0.19.0'
+    id 'org.springframework.boot' version '2.1.4.RELEASE'
+    id 'org.flywaydb.flyway' version '5.1.4'
+}
+
+bootJar {
+    baseName = 'github-repo-downloader'
+    version = "1.0.0"
+}
+
+group 'thomasmillergb'
+version '1.0'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web:2.1.4.RELEASE')
+    compile("org.springframework.boot:spring-boot-starter-jdbc:2.1.4.RELEASE")
+
+    
+    compile ('com.graphql-java-kickstart:graphiql-spring-boot-starter:5.10.0')
+    compile ('com.graphql-java-kickstart:graphql-spring-boot-starter:5.10.0')
+    implementation 'com.graphql-java-kickstart:graphql-java-tools:5.6.0'
+    
+    compile('org.apache.commons:commons-lang3:3.7')
+    compile('commons-io:commons-io:2.6')
+    compile('com.fasterxml.jackson.module:jackson-modules-java8:2.9.6')
+    compile('com.microsoft.sqlserver:mssql-jdbc:7.2.2.jre8')
+    compile('io.reactivex.rxjava2:rxjava:2.2.9')
+    compile('org.flywaydb:flyway-core:5.2.4')
+    testCompile('org.springframework.boot:spring-boot-starter-test:2.1.4.RELEASE'){
+        exclude group: 'junit', module: 'junit'
+    }
+    testCompile('org.flywaydb:flyway-core:5.2.4')
+    testCompile('org.flywaydb.flyway-test-extensions:flyway-spring-test:5.2.1')
+    testCompile('org.apache.httpcomponents:httpclient:4.5.6')
+    /*
+    Should be usful when running a docker base test
+    testCompile("com.amazonaws:aws-java-sdk-ecr:1.11.483")
+    testCompile 'com.github.docker-java:docker-java:3.1.1'
+    testCompile("org.awaitility:awaitility:3.1.6")
+    */
+    testCompile 'org.mockito:mockito-junit-jupiter:2.23.0'
+    testImplementation 'org.mockito:mockito-inline:2.13.0'
+    testCompile("org.junit.jupiter:junit-jupiter-api:5.4.2")
+    testCompile('org.junit.jupiter:junit-jupiter-params:5.4.2')
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.4.2')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+docker {
+    name "${project.group}/${bootJar.baseName}:${bootJar.version}"
+    files bootJar.archivePath
+    buildArgs([
+            JAR_FILE: "${bootJar.archiveName}",
+            VERSION: "${bootJar.version}"
+    ])
+}
+
+task dockerImage {
+    doLast {
+        println docker.name
+    }
+}
+
+test {
+    testLogging {
+        exceptionFormat = 'full'
+        showStandardStreams = true
+    }
+    useJUnitPlatform()
+}
