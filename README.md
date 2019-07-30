@@ -80,7 +80,30 @@ Result
  
  
  
+ ## To note
+ Allot of the pain of having to making mutiple api calls could have been reduced if using the github v4 graphql as i could have used
  
+ ```
+ {
+  search(query: "is:public", type: REPOSITORY, first: 50, after:"Y3Vyc29yOjUw" ) {
+    repositoryCount
+    pageInfo {
+      endCursor
+      startCursor
+    }
+    edges {
+      node {
+        ... on Repository {
+          name
+          stargazers {
+            totalCount
+          }
+        }
+      }
+    }
+  }
+}
+ ```
  
  ## Left to do
  
